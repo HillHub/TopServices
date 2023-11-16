@@ -1,0 +1,42 @@
+# Server
+server.port: 8080
+spring:
+  application:
+    name: product-service
+  kafka:
+    bootstrap-servers: localhost:19092
+    properties:
+      schema:
+        registry:
+          url: "http://localhost:8081"
+    consumer:
+      group-id: product-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus, threaddump
+  endpoint:
+    health:
+      probes:
+        enabled: true
+        
+integration:
+  brink:
+    token-url: https://brinkcommerce-playground1.auth.eu-west-1.amazoncognito.com/oauth2/token
+    client-id: 6s4899cp7j4dg93s0h8klefajl
+    client-secret: 1q155q5e93fm5ubbkkc0rhmj5a3pag0e0ap906mbk5psj6vca4kk
+    management-url: https://management.eu-west-1.playground1.brinkcommerce.io
+    shopper-url: https://shopper.eu-west-1.playground1.brinkcommerce.io
+    order-url: https://order.eu-west-1.playground1.brinkcommerce.io
+    store-group-id: storeGroupId
+  topics:
+    product: public.product.updated
+    category: public.category.updated

@@ -1,0 +1,69 @@
+{
+  "groups": [
+    {
+      "name": "integration",
+      "type": "se.topofminds.product.configuration.ProductConfig",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig"
+    },
+    {
+      "name": "integration.brink",
+      "type": "se.topofminds.product.configuration.ProductConfig$Brink",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig",
+      "sourceMethod": "brink()"
+    },
+    {
+      "name": "integration.topics",
+      "type": "se.topofminds.product.configuration.ProductConfig$Topic",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig",
+      "sourceMethod": "topics()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "integration.brink.client-id",
+      "type": "java.lang.String",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig$Brink"
+    },
+    {
+      "name": "integration.brink.client-secret",
+      "type": "java.lang.String",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig$Brink"
+    },
+    {
+      "name": "integration.brink.management-url",
+      "type": "java.lang.String",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig$Brink"
+    },
+    {
+      "name": "integration.brink.order-url",
+      "type": "java.lang.String",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig$Brink"
+    },
+    {
+      "name": "integration.brink.shopper-url",
+      "type": "java.lang.String",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig$Brink"
+    },
+    {
+      "name": "integration.brink.store-group-id",
+      "type": "java.lang.String",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig$Brink"
+    },
+    {
+      "name": "integration.brink.token-url",
+      "type": "java.lang.String",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig$Brink"
+    },
+    {
+      "name": "integration.topics.category",
+      "type": "java.lang.String",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig$Topic"
+    },
+    {
+      "name": "integration.topics.product",
+      "type": "java.lang.String",
+      "sourceType": "se.topofminds.product.configuration.ProductConfig$Topic"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,64 @@
+# Server
+server.port: 8080
+spring:
+  application:
+    name: product-service
+  kafka:
+    bootstrap-servers: localhost:19092
+    properties:
+      schema:
+        registry:
+          url: "http://localhost:8081"
+    consumer:
+      group-id: product-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=ProductLocal;trustServerCertificate=true
+    username: SA
+    password: p@ssw0rd1
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    #hibernate.ddl-auto: validate
+    #show-sql: true
+    #properties.hibernate.format_sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  flyway:
+    table: top_flyway_schema_history_products
+    enabled: true
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus, threaddump
+  endpoint:
+    health:
+      probes:
+        enabled: true
+        
+integration:
+  brink:
+    token-url: https://brinkcommerce-playground1.auth.eu-west-1.amazoncognito.com/oauth2/token
+    client-id: 6s4899cp7j4dg93s0h8klefajl
+    client-secret: 1q155q5e93fm5ubbkkc0rhmj5a3pag0e0ap906mbk5psj6vca4kk
+    management-url: https://management.eu-west-1.playground1.brinkcommerce.io
+    shopper-url: https://shopper.eu-west-1.playground1.brinkcommerce.io
+    order-url: https://order.eu-west-1.playground1.brinkcommerce.io
+    store-group-id: storeGroupId
+  topics:
+    product: public.product.updated
+    category: public.category.updated

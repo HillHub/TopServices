@@ -1,0 +1,1502 @@
+{
+	"info": {
+		"_postman_id": "99d70ec9-801f-4ba7-ad08-f3ac0b7537d6",
+		"name": "BrinkCommerce Playground1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12818888"
+	},
+	"item": [
+		{
+			"name": "Cleanup",
+			"item": [
+				{
+					"name": "/store-groups/{storeGroupId}/markets/{countryCode}/product-variants/{productVariantId}/price",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{managementUrl}}/price/store-groups/{{storeGroupId}}/markets/{{countryCode}}/product-variants/{{productVariantId}}/price",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"price",
+								"store-groups",
+								"{{storeGroupId}}",
+								"markets",
+								"{{countryCode}}",
+								"product-variants",
+								"{{productVariantId}}",
+								"price"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/product-variants/{productVariantId}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{managementUrl}}/product/product-variants/{{productVariantId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"product",
+								"product-variants",
+								"{{productVariantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/product-parents/{productParentId}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{managementUrl}}/product/product-parents/{{productParentId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"product",
+								"product-parents",
+								"{{productParentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tax-groups/{taxGroupId}/markets/{countryCode}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{managementUrl}}/tax/tax-groups/{{taxGroupId}}/markets/{{countryCode}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"tax",
+								"tax-groups",
+								"{{taxGroupId}}",
+								"markets",
+								"{{countryCode}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tax-groups/{taxGroupId}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{managementUrl}}/tax/tax-groups/{{taxGroupId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"tax",
+								"tax-groups",
+								"{{taxGroupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/inventories/{inventoryId}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{managementUrl}}/stock/inventories/{{inventoryId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"stock",
+								"inventories",
+								"{{inventoryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/store-groups/{storeGroupId}/markets/{countryCode}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{managementUrl}}/store/store-groups/{{storeGroupId}}/markets/{{countryCode}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"store",
+								"store-groups",
+								"{{storeGroupId}}",
+								"markets",
+								"{{countryCode}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/store-groups",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{managementUrl}}/store/store-groups/{{storeGroupId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"store",
+								"store-groups",
+								"{{storeGroupId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Setup",
+			"item": [
+				{
+					"name": "/store-groups",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Scandic Test\",\n    \"description\": \"Scandic test environment\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{managementUrl}}/store/store-groups/{{storeGroupId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"store",
+								"store-groups",
+								"{{storeGroupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/store-groups/{storeGroupId}/markets/{countryCode}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"isTaxIncludedInPrice\": true,\n  \"capabilities\": {\n    \"shippingProviders\": [\n      {\n        \"id\": \"{{shippingProviderId}}\",\n        \"type\": \"{{shippingProviderName}}\"\n      }\n    ],\n    \"giftCardProviders\": [\n    ],\n    \"paymentProviders\": [\n      {\n        \"id\": \"{{paymentProviderId}}\",\n        \"type\": \"{{paymentProviderName}}\"\n      }\n    ]\n  },\n  \"currencyCode\": \"{{currencyCode}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{managementUrl}}/store/store-groups/{{storeGroupId}}/markets/{{countryCode}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"store",
+								"store-groups",
+								"{{storeGroupId}}",
+								"markets",
+								"{{countryCode}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/inventories/{inventoryId}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"address\": {\n    \"country\": \"Sweden\",\n    \"city\": \"Ankeborg\",\n    \"streetAddress\": \"Paradisäppelvägen 111\",\n    \"postalCode\": \"43140\",\n    \"region\": \"Calisota\"\n  },\n  \"name\": \"Scandic Inventory\",\n  \"description\": \"Scandic inventory - mock\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{managementUrl}}/stock/inventories/{{inventoryId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"stock",
+								"inventories",
+								"{{inventoryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/store-groups/{storeGroupId}/markets/{countryCode}/inventories",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"inventoryIds\": [\n    \"{{inventoryId}}\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{managementUrl}}/stock/store-groups/{{storeGroupId}}/markets/{{countryCode}}/inventories",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"stock",
+								"store-groups",
+								"{{storeGroupId}}",
+								"markets",
+								"{{countryCode}}",
+								"inventories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tax-groups/{taxGroupId}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Hotel tax\",\n  \"description\": \"Tax for hotel services and stays\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{managementUrl}}/tax/tax-groups/{{taxGroupId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"tax",
+								"tax-groups",
+								"{{taxGroupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tax-groups/{taxGroupId}/markets/{countryCode}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"taxPercentage\": 1200,\n  \"taxPercentageDecimals\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{managementUrl}}/tax/tax-groups/{{taxGroupId}}/markets/{{countryCode}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"tax",
+								"tax-groups",
+								"{{taxGroupId}}",
+								"markets",
+								"{{countryCode}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create product",
+			"item": [
+				{
+					"name": "/product-parents/{productParentId}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Hotel Scandic - Downtown Camper\",\n    \"displayNames\": {\n        \"en\": \"Hotel Scandic - Downtown Camper\",\n        \"SE\": \"Hotel Scandic - Downtown Kamparen\"\n    },\n    \"description\": \"The downtown camper is a modern a fancy hotel for the whole family or take a nice suite with your loved one for a cosy night. :)\",\n    \"displayDescriptions\": {\n        \"en\": \"The downtown camper is a modern a fancy hotel for the whole family or take a nice suite with your loved one for a cosy night.\",\n        \"SE\": \"Downtown camper är ett modernt hotel som passar hela familjen, eller varför inte ta in på en av våra sviter med din käraste.\"\n    },\n    \"imageUrl\": \"https://www.scandichotels.se/imageVault/publishedmedia/znb373cbdtd0z5lz54dh/downtown-camper-by-scandic-lobby-reception-desk-ch.jpg\",\n    \"isActive\": true,\n    \"customAttributes\": {\n        \"Attributes\": \"hidden\"\n    },\n    \"tags\": {\n        \"city\": [\n            \"Stockholm\"\n        ],\n        \"roomSelections\": [\n            \"classic\",\n            \"cozy\",\n            \"grand\",\n            \"master\"\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{managementUrl}}/product/product-parents/{{productParentId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"product",
+								"product-parents",
+								"{{productParentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/product-parents/{productParentId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{managementUrl}}/product/product-parents/{{productParentId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"product",
+								"product-parents",
+								"{{productParentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/product-variants/{productVariantId}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taxGroupId\": \"{{taxGroupId}}\",\n    \"imageUrl\": \"https://www.scandichotels.se/hotelreservation/select-rate?fromDate=2023-11-1&toDate=2023-11-2&room%5b0%5d.adults=1&hotel=879&tr=c11ba7a719824d48bca3fd3c453f65fd#a83f503aef26495c8f27a2a663f3afab\",\n    \"name\": \"Classic Double Sleep (inget fönster)\",\n    \"displayNames\": {\n        \"SE\":\"Classic Double Sleep (inget fönster)\",\n        \"en\":\"Classic Double Sleep (no windows)\"\n    },\n    \"description\": \"Your tranquil oasis awaits. Ideal if you're after an excellent night's sleep, these rooms are without a window. Please note! No space for an extra bed in the room.\",\n    \"weight\": 1000,\n    \"displayDescriptions\": {\n        \"SE\":\"Välkommen in i en avslappnande miljö. Perfekt för dig som vill sova extra gott, dessa rum är utan fönster. OBS! Ingen extra säng kan sättas in i rummet.\",\n        \"en\":\"Your tranquil oasis awaits. Ideal if you're after an excellent night's sleep, these rooms are without a window. Please note! No space for an extra bed in the room.\"\n    },\n    \"isActive\": true,\n    \"productParentId\": \"{{productParentId}}\",\n    \"customAttributes\": {\n        \"roomSize\": \"18 - 22 m²\",\n        \"roomFor\": \"2\",\n        \"salesArgument1\": \"TV med Chromecast\",\n        \"salesArgument2\": \"Strykjärn och strykbräda\",\n        \"salesArgument3\": \"Vattenkokare med kaffe/te\"\n    },\n    \"tags\": {},\n    \"dimensions\": {\n        \"width\": 0,\n        \"length\": 0,\n        \"height\": 0\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{managementUrl}}/product/product-variants/{{productVariantId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"product",
+								"product-variants",
+								"{{productVariantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/product-parents/{productParentId}/variants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{managementUrl}}/product/product-parents/{{productParentId}}/variants",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"product",
+								"product-parents",
+								"{{productParentId}}",
+								"variants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/product-variants/{productVariantId}/inventories/{inventoryId}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 1337\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{managementUrl}}/stock/product-variants/{{productVariantId}}/inventories/{{inventoryId}}",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"stock",
+								"product-variants",
+								"{{productVariantId}}",
+								"inventories",
+								"{{inventoryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/store-groups/{storeGroupId}/product-variants/{productVariantId}/prices",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productVariantPrices\": [\n    {\n      \"basePriceAmount\": 132800,\n      \"countryCode\": \"{{countryCode}}\",\n      \"salePriceAmount\": 118200\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{managementUrl}}/price/store-groups/{{storeGroupId}}/product-variants/{{productVariantId}}/prices",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"price",
+								"store-groups",
+								"{{storeGroupId}}",
+								"product-variants",
+								"{{productVariantId}}",
+								"prices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/store-groups/{storeGroupId}/product-variants/{productVariantId}/prices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{managementUrl}}/price/store-groups/{{storeGroupId}}/product-variants/{{productVariantId}}/prices",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"price",
+								"store-groups",
+								"{{storeGroupId}}",
+								"product-variants",
+								"{{productVariantId}}",
+								"prices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shopper",
+			"item": [
+				{
+					"name": "/sessions/start",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\",  ()=>{",
+									"    if( pm.response.to.have.status(200)){",
+									"        var response = JSON.parse(responseBody);",
+									"        pm.collectionVariables.set(\"token\", response.token);",
+									"        pm.collectionVariables.set(\"paymentProviderName\", response.capabilities.paymentProviders[0].name);",
+									"        pm.collectionVariables.set(\"paymentProviderId\", response.capabilities.paymentProviders[0].id);",
+									"        pm.collectionVariables.set(\"shippingProviderName\", response.capabilities.shippingProviders[0].name);",
+									"        pm.collectionVariables.set(\"shippingProviderId\", response.capabilities.shippingProviders[0].id);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"storeGroupId\": \"{{storeGroupId}}\",\n  \"countryCode\": \"{{countryCode}}\",\n  \"languageCode\": \"{{languageCode}}\"    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{shopperUrl}}/shopper/sessions/start",
+							"host": [
+								"{{shopperUrl}}"
+							],
+							"path": [
+								"shopper",
+								"sessions",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sessions/items",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\",  ()=>{",
+									"    if( pm.response.to.have.status(200)){",
+									"        var response = JSON.parse(responseBody);",
+									"        pm.collectionVariables.set(\"itemsId\", response.cart.items[0].id);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 1,\n  \"productVariantId\": \"{{productVariantId}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{shopperUrl}}/shopper/sessions/items",
+							"host": [
+								"{{shopperUrl}}"
+							],
+							"path": [
+								"shopper",
+								"sessions",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sessions/items/{itemId}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{shopperUrl}}/shopper/sessions/items/{{itemsId}}",
+							"host": [
+								"{{shopperUrl}}"
+							],
+							"path": [
+								"shopper",
+								"sessions",
+								"items",
+								"{{itemsId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sessions/checkout/start",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\",  ()=>{",
+									"    if( pm.response.to.have.status(200)){",
+									"        var response = JSON.parse(responseBody);",
+									"        pm.collectionVariables.set(\"token\", response.token);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"shippingProvider\": {\n    \"name\": \"{{shippingProviderName}}\",\n    \"id\": \"{{shippingProviderId}}\"\n  },\n  \"paymentProvider\": {\n    \"name\": \"{{paymentProviderName}}\",\n    \"id\": \"{{paymentProviderId}}\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{shopperUrl}}/shopper/sessions/checkout/start",
+							"host": [
+								"{{shopperUrl}}"
+							],
+							"path": [
+								"shopper",
+								"sessions",
+								"checkout",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sessions/discount-codes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\",  ()=>{",
+									"    if( pm.response.to.have.status(200)){",
+									"        var response = JSON.parse(responseBody);",
+									"        pm.collectionVariables.set(\"token\", response.token);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"discountCode\": \"JOHAN_TESTCODE_10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{shopperUrl}}/shopper/sessions/discount-codes",
+							"host": [
+								"{{shopperUrl}}"
+							],
+							"path": [
+								"shopper",
+								"sessions",
+								"discount-codes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/shopper-ingrid/sessions/create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\",  ()=>{",
+									"    if( pm.response.to.have.status(200)){",
+									"        var response = JSON.parse(responseBody);",
+									"        var htmlSnippet = response.htmlSnippet.replace(\"\\\\\\\"\",\"\\\"\");",
+									"        pm.collectionVariables.set(\"shippingHtmlSnippet\", htmlSnippet);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ingrid\": {\n    \"locales\": [\n      \"{{languageCode}}-{{countryCode}}\"\n    ],\n    \"postalCode\": \"{{postalCode}}\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{shopperUrl}}/shopper-ingrid/sessions/create",
+							"host": [
+								"{{shopperUrl}}"
+							],
+							"path": [
+								"shopper-ingrid",
+								"sessions",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/shopper-ingrid/sessions/sync",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\",  ()=>{",
+									"    if( pm.response.to.have.status(200)){",
+									"        var response = JSON.parse(responseBody);",
+									"        var htmlSnippet = response.htmlSnippet.replace(\"\\\\\\\"\",\"\\\"\");",
+									"        pm.collectionVariables.set(\"shippingHtmlSnippet\", htmlSnippet);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{shopperUrl}}/shopper-ingrid/sessions/sync",
+							"host": [
+								"{{shopperUrl}}"
+							],
+							"path": [
+								"shopper-ingrid",
+								"sessions",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sessions/checkout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{shopperUrl}}/shopper/sessions/checkout",
+							"host": [
+								"{{shopperUrl}}"
+							],
+							"path": [
+								"shopper",
+								"sessions",
+								"checkout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/sessions/checkout",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{shopperUrl}}/shopper/sessions/checkout",
+									"host": [
+										"{{shopperUrl}}"
+									],
+									"path": [
+										"shopper",
+										"sessions",
+										"checkout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Aug 2023 12:51:09 GMT"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "60cf5103-aed7-421e-bb49-9b49ee3ec247"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "access-control-allow-headers",
+									"value": "Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "KHUNkEZDjoEFw7w="
+								},
+								{
+									"key": "access-control-allow-methods",
+									"value": "*"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-64e600bc-3f14bbcb5e8bff892be41d98"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 59202edf772149f3e7805f2a4994d252.cloudfront.net (CloudFront), 1.1 3346055bb53a57ebf02828b88e1ee87c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "ARN56-P1"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "ARN56-P2"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=86400"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "V0dy7XTJA615xAvaxNe1s1oxMO20Lpf7ln14pjf0O_ppXPno38FB3w=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJicmlua2NvbW1lcmNlLXNob3BwZXIiLCJleHAiOjE2OTUzODcwNDMsImlhdCI6MTY5Mjc5NTA0MywianRpIjoiY2RhMTMyMmEtN2Y0NC00ZjMxLTkxN2EtODhmZGMyNTU2ZDRhIiwic2Vzc2lvbklkIjoiY2RhMTMyMmEtN2Y0NC00ZjMxLTkxN2EtODhmZGMyNTU2ZDRhIiwic3RvcmVHcm91cElkIjoiam9oYW5Hcm91cCIsImNvdW50cnlDb2RlIjoiU0UiLCJjdXJyZW5jeUNvZGUiOiJTRUsiLCJsYW5ndWFnZUNvZGUiOiJzdiIsImlzVGF4SW5jbHVkZWRJblByaWNlIjoidHJ1ZSIsImNoZWNrb3V0SWQiOiJjMWFlNTA4NC0yNGM1LTQxYWMtOTY1ZC1iNWI4NjA0YjAyYmMifQ.-L_H8oK4EaPeAQNcW1aJcblMRItHNMdxCKc4msMo1DM\",\n    \"checkout\": {\n        \"id\": \"c1ae5084-24c5-41ac-965d-b5b8604b02bc\",\n        \"sessionId\": \"cda1322a-7f44-4f31-917a-88fdc2556d4a\",\n        \"cartRevision\": 2,\n        \"storeGroupId\": \"johanGroup\",\n        \"countryCode\": \"SE\",\n        \"currencyCode\": \"SEK\",\n        \"languageCode\": \"sv\",\n        \"discountCodes\": [],\n        \"discountRules\": [\n            {\n                \"name\": \"johanscartrule\",\n                \"discountRuleId\": \"d759cc0d-2c8f-4f61-860d-08bc5a7359d8\",\n                \"discountAmount\": 2000,\n                \"currencyCode\": \"SEK\",\n                \"freeShipping\": false\n            }\n        ],\n        \"isTaxIncludedInPrice\": true,\n        \"created\": \"2023-08-23T12:50:43.592725505Z\",\n        \"updated\": \"2023-08-23T12:50:43.592725505Z\",\n        \"items\": [\n            {\n                \"id\": \"9916e516-6674-4e7d-898d-fa8f734f3379\",\n                \"productVariantId\": \"awesomeStuff-XL\",\n                \"productParentId\": \"awesomeStuff\",\n                \"quantity\": 1,\n                \"name\": \"A big chunk of awesomeness\",\n                \"displayName\": \"A big chunk of awesomeness\",\n                \"description\": \"You'll never need another thing in your life\",\n                \"displayDescription\": \"You'll never need another thing in your life\",\n                \"taxGroupId\": \"taxAwesomeStuff\",\n                \"basePriceAmount\": 50000,\n                \"salePriceAmount\": 10000,\n                \"discountAmount\": 40000,\n                \"totalPriceAmount\": 8000,\n                \"totalTaxAmount\": 1600,\n                \"taxPercentage\": 2500,\n                \"totalDiscountAmount\": 42000,\n                \"taxPercentageDecimals\": 2,\n                \"imageUrl\": \"https://repository-images.githubusercontent.com/21737465/46445f80-a5ae-11ea-921f-c39aefbcdcac\",\n                \"customAttributes\": {},\n                \"tags\": {},\n                \"options\": {\n                    \"cool\": \"beans\"\n                }\n            }\n        ],\n        \"gifts\": [],\n        \"shippingOptions\": [\n            {\n                \"id\": \"d9d55851-46bc-4e11-91ec-eab6597225f7\",\n                \"name\": \"PostNord MyPack Collect\",\n                \"displayName\": \"PostNord MyPack Collect\",\n                \"taxGroupId\": \"\",\n                \"taxPercentage\": 0,\n                \"taxPercentageDecimals\": 0,\n                \"basePriceAmount\": 100,\n                \"salePriceAmount\": 100,\n                \"discountAmount\": 0,\n                \"taxAmount\": 0\n            }\n        ],\n        \"giftCards\": [],\n        \"discountAmount\": 0,\n        \"capabilities\": {\n            \"paymentProvider\": {\n                \"id\": \"39494421-a9b3-47a1-b1f7-a66fce93c840\",\n                \"name\": \"KlarnaCheckout\"\n            },\n            \"shippingProvider\": {\n                \"id\": \"brink_ingrid_test\",\n                \"name\": \"Ingrid\",\n                \"config\": {\n                    \"baseUrl\": \"https://api-stage.ingrid.com/\"\n                }\n            }\n        },\n        \"totals\": {\n            \"subTotal\": 50000,\n            \"taxTotal\": 1600,\n            \"discountTotal\": 42000,\n            \"shippingTotal\": 100,\n            \"voucherTotal\": 0,\n            \"giftCardTotal\": 0,\n            \"grandTotal\": 8100\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/shopper-kco/orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\",  ()=>{",
+									"    if( pm.response.to.have.status(200)){",
+									"        var response = JSON.parse(responseBody);",
+									"        var htmlSnippet = response.klarna.html_snippet.replace(\"\\\\\\\"\",\"\\\"\");",
+									"        pm.collectionVariables.set(\"paymentHtmlSnippet\", htmlSnippet);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"klarna\": {\n        \"merchant_urls\": {\n            \"terms\": \"https://merchant.com/terms\",\n            \"confirmation\": \"https://example.com/confirmation\",\n            \"cancellation_terms\": \"https://merchant.com/terms\",\n            \"checkout\": \"https://merchant.com/checkout\"\n        },\n        \"options\": {\n            \"additional_checkbox\": {\n                \"text\": \"Subscribe to newsletter\",\n                \"checked\": false,\n                \"required\": false\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{shopperUrl}}/shopper-kco/orders",
+							"host": [
+								"{{shopperUrl}}"
+							],
+							"path": [
+								"shopper-kco",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/shopper-kco/orders/sync",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\",  ()=>{",
+									"    if( pm.response.to.have.status(200)){",
+									"        var response = JSON.parse(responseBody);",
+									"        var htmlSnippet = response.klarna.html_snippet.replace(\"\\\\\\\"\",\"\\\"\");",
+									"        pm.collectionVariables.set(\"paymentHtmlSnippet\", htmlSnippet);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{shopperUrl}}/shopper-kco/orders/sync",
+							"host": [
+								"{{shopperUrl}}"
+							],
+							"path": [
+								"shopper-kco",
+								"orders",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/shopper-kco/orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is ok\",  ()=>{",
+									"    if( pm.response.to.have.status(200)){",
+									"        var response = JSON.parse(responseBody);",
+									"        var htmlSnippet = response.klarna.html_snippet.replace(\"\\\\\\\"\",\"\\\"\");",
+									"        pm.collectionVariables.set(\"confirmationHtmlSnippet\", htmlSnippet);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{shopperUrl}}/shopper-kco/orders",
+							"host": [
+								"{{shopperUrl}}"
+							],
+							"path": [
+								"shopper-kco",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "/orders/reference/{reference}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{managementUrl}}/order/orders/reference/c586c34db31f",
+							"host": [
+								"{{managementUrl}}"
+							],
+							"path": [
+								"order",
+								"orders",
+								"reference",
+								"c586c34db31f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/orders/reference/{reference}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{managementUrl}}/order/orders/reference/{{orderReference}}",
+									"host": [
+										"{{managementUrl}}"
+									],
+									"path": [
+										"order",
+										"orders",
+										"reference",
+										"{{orderReference}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jun 2023 11:57:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3705"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "0a274a69-352f-488f-a57b-e03f00e0f2b0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "Gjxm4GUMDoEF9kg="
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-648afc92-348356c538ea8f48064e546f"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"907b35e9-da82-5584-965b-fabd08c0a8ab\",\n    \"date\": \"2023-06-14T14:41:08.785901658Z\",\n    \"reference\": \"b6bf2b01a453\",\n    \"payment\": {\n        \"providerId\": \"39494421-a9b3-47a1-b1f7-a66fce93c840\",\n        \"providerName\": \"KlarnaCheckout\",\n        \"reference\": \"12484HQM\",\n        \"method\": \"INVOICE\",\n        \"additional\": {\n            \"klarnaCheckout\": {\n                \"fraudStatus\": \"ACCEPTED\",\n                \"klarnaMerchantId\": \"brink_klarna_test\",\n                \"klarnaOrderId\": \"f5df70de-6e2c-42d2-a815-3f1e03ebf8d0\",\n                \"klarnaReference\": \"12484HQM\",\n                \"status\": \"authorized\"\n            }\n        }\n    },\n    \"shipping\": {\n        \"providerId\": \"brink_ingrid_test\",\n        \"providerName\": \"Ingrid\",\n        \"reference\": \"VM2-5d36f843e5c94712b7cff5ac62bbc6e2\",\n        \"additional\": {\n            \"ingrid\": {\n                \"checkoutSessionId\": \"VM2-5d36f843e5c94712b7cff5ac62bbc6e2\",\n                \"deliveries\": [\n                    {\n                        \"carrierProductId\": \"pnl-mpc-external-id\",\n                        \"currencyCode\": \"SEK\",\n                        \"deliveryAddress\": {\n                            \"addressLines\": [\n                                \"Vetekornsgatan 2\"\n                            ],\n                            \"city\": \"Mölndal\",\n                            \"country\": \"SE\",\n                            \"name\": \"Paketbox Vetekornsgatan 2\",\n                            \"postalCode\": \"43146\"\n                        },\n                        \"deliveryType\": \"pickup\",\n                        \"groupId\": \"3134188f-bfdc-49ef-8156-3389994cec11\",\n                        \"locationExternalId\": \"2148749\",\n                        \"name\": \"PostNord MyPack Collect\",\n                        \"price\": 100,\n                        \"taxAmount\": 0,\n                        \"taxGroupId\": \"\",\n                        \"taxPercentage\": 0,\n                        \"taxPercentageDecimals\": 0,\n                        \"tosId\": \"01H2X5MV9FX35W8G80WS0FFK4X\"\n                    }\n                ]\n            }\n        }\n    },\n    \"billingAddress\": {\n        \"givenName\": \"Johan\",\n        \"familyName\": \"Afséer\",\n        \"email\": \"johanafseer@gmail.com\",\n        \"telephoneNumber\": \"+46739128128\",\n        \"streetAddress\": \"Strågatan 2\",\n        \"streetAddress2\": \"\",\n        \"postalCode\": \"431 40\",\n        \"city\": \"Mölndal\",\n        \"stateOrProvince\": \"\",\n        \"country\": \"SE\"\n    },\n    \"shippingAddress\": {\n        \"givenName\": \"Johan\",\n        \"familyName\": \"Afséer\",\n        \"email\": \"johanafseer@gmail.com\",\n        \"telephoneNumber\": \"+46739128128\",\n        \"streetAddress\": \"Strågatan 2\",\n        \"streetAddress2\": \"\",\n        \"postalCode\": \"431 40\",\n        \"city\": \"Mölndal\",\n        \"stateOrProvince\": \"\",\n        \"country\": \"SE\"\n    },\n    \"orderLines\": [\n        {\n            \"id\": \"3934c286-be4c-4efd-8d41-4612baad626c\",\n            \"quantity\": 1,\n            \"productVariantId\": \"awesomeStuff-XL\",\n            \"productParentId\": \"awesomeStuff\",\n            \"name\": \"A big chunk of awesomeness\",\n            \"displayName\": \"A big chunk of awesomeness\",\n            \"description\": \"You'll never need another thing in your life\",\n            \"displayDescription\": \"You'll never need another thing in your life\",\n            \"taxGroupId\": \"taxAwesomeStuff\",\n            \"currencyCode\": \"SEK\",\n            \"basePriceAmount\": 50000,\n            \"salePriceAmount\": 10000,\n            \"discountAmount\": 40000,\n            \"taxPercentage\": 2500,\n            \"taxPercentageDecimals\": 2,\n            \"imageUrl\": \"https://repository-images.githubusercontent.com/21737465/46445f80-a5ae-11ea-921f-c39aefbcdcac\",\n            \"discountOutcome\": {\n                \"rules\": [\n                    {\n                        \"discountRuleId\": \"5ea77688-5517-46f3-93a4-8e06b2deeaee\",\n                        \"discountAmount\": 1000\n                    },\n                    {\n                        \"discountRuleId\": \"d759cc0d-2c8f-4f61-860d-08bc5a7359d8\",\n                        \"discountAmount\": 1800\n                    }\n                ],\n                \"totalDiscountAmount\": 2800\n            },\n            \"totalPriceAmount\": 7200,\n            \"totalTaxAmount\": 1440,\n            \"totalDiscountAmount\": 42800,\n            \"distributedTotalPriceAmount\": 6200,\n            \"distributedTotalTaxAmount\": 1240,\n            \"distributedTotalDiscountAmount\": 43800\n        }\n    ],\n    \"shippingFees\": [\n        {\n            \"id\": \"3134188f-bfdc-49ef-8156-3389994cec11\",\n            \"name\": \"PostNord MyPack Collect\",\n            \"displayName\": \"PostNord MyPack Collect\",\n            \"taxGroupId\": \"\",\n            \"currencyCode\": \"SEK\",\n            \"basePriceAmount\": 100,\n            \"salePriceAmount\": 100,\n            \"discountAmount\": 0,\n            \"taxAmount\": 0,\n            \"taxPercentage\": 0,\n            \"taxPercentageDecimals\": 0\n        }\n    ],\n    \"languageCode\": \"sv\",\n    \"countryCode\": \"SE\",\n    \"currencyCode\": \"SEK\",\n    \"storeGroupId\": \"johanGroup\",\n    \"discountOutcome\": {\n        \"rules\": [\n            {\n                \"discountRuleId\": \"596854e9-9762-4b18-a07a-51f9aaa45576\",\n                \"discountAmount\": 1000\n            }\n        ],\n        \"discountReduction\": 0,\n        \"totalDiscountAmount\": 1000,\n        \"freeShipping\": false\n    },\n    \"discountRules\": [\n        {\n            \"id\": \"d759cc0d-2c8f-4f61-860d-08bc5a7359d8\",\n            \"name\": \"johanscartrule\"\n        }\n    ],\n    \"discountCodeRules\": [\n        {\n            \"id\": \"5ea77688-5517-46f3-93a4-8e06b2deeaee\",\n            \"name\": \"johan_test_10kr\",\n            \"code\": \"JOHAN_TESTCODE_10KR\"\n        },\n        {\n            \"id\": \"596854e9-9762-4b18-a07a-51f9aaa45576\",\n            \"name\": \"johan_testoncart_10%\",\n            \"code\": \"JOHAN_TESTCODE_10\"\n        }\n    ],\n    \"totals\": {\n        \"subTotal\": 50000,\n        \"taxTotal\": 1240,\n        \"discountTotal\": 43800,\n        \"shippingTotal\": 100,\n        \"giftCardTotal\": 0,\n        \"grandTotal\": 6300\n    },\n    \"isTaxIncludedInPrice\": true\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "tokenType",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "6s4899cp7j4dg93s0h8klefajl",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "1q155q5e93fm5ubbkkc0rhmj5a3pag0e0ap906mbk5psj6vca4kk",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://brinkcommerce-playground1.auth.eu-west-1.amazoncognito.com/oauth2/token",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "staging",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.headers.add({key: 'x-api-key', value: 'BrinkCommerceDefaultApiKey' });"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "managementUrl",
+			"value": "https://management.eu-west-1.staging.brinkcommerce.io",
+			"type": "string"
+		},
+		{
+			"key": "shopperUrl",
+			"value": "https://shopper.eu-west-1.staging.brinkcommerce.io",
+			"type": "string"
+		},
+		{
+			"key": "orderUrl",
+			"value": "https://order.eu-west-1.staging.brinkcommerce.io",
+			"type": "string"
+		},
+		{
+			"key": "storeGroupId",
+			"value": "johanGroup",
+			"type": "string"
+		},
+		{
+			"key": "countryCode",
+			"value": "SE",
+			"type": "string"
+		},
+		{
+			"key": "currencyCode",
+			"value": "SEK",
+			"type": "string"
+		},
+		{
+			"key": "inventoryId",
+			"value": "scandic-inventory",
+			"type": "string"
+		},
+		{
+			"key": "taxGroupId",
+			"value": "scandic-tax-group",
+			"type": "string"
+		},
+		{
+			"key": "productParentId",
+			"value": "downtowncamper",
+			"type": "string"
+		},
+		{
+			"key": "productVariantId",
+			"value": "downtowncamper-classicDouble",
+			"type": "string"
+		},
+		{
+			"key": "languageCode",
+			"value": "sv",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJicmlua2NvbW1lcmNlLXNob3BwZXIiLCJleHAiOjE3MDI0NzY5ODcsImlhdCI6MTY5OTg4NDk4NywianRpIjoiODk0NWM4OTEtNmE5ZC00M2ZkLWFhMjgtMDNkYWRmOGFlZDY2Iiwic2Vzc2lvbklkIjoiODk0NWM4OTEtNmE5ZC00M2ZkLWFhMjgtMDNkYWRmOGFlZDY2Iiwic3RvcmVHcm91cElkIjoic2NhbmRpYy10ZXN0IiwiY291bnRyeUNvZGUiOiJTRSIsImN1cnJlbmN5Q29kZSI6IlNFSyIsImxhbmd1YWdlQ29kZSI6InN2IiwiaXNUYXhJbmNsdWRlZEluUHJpY2UiOiJ0cnVlIn0.J3HkTEfoVcE_Xu2MPraDijEM8skEUb2lmatIzytudNk"
+		},
+		{
+			"key": "itemsId",
+			"value": "55eb341c-03de-4c39-a06c-33c1f8be2dc5"
+		},
+		{
+			"key": "paymentProviderName",
+			"value": "KlarnaCheckout",
+			"type": "string"
+		},
+		{
+			"key": "paymentProviderId",
+			"value": "39494421-a9b3-47a1-b1f7-a66fce93c840",
+			"type": "string"
+		},
+		{
+			"key": "shippingProviderName",
+			"value": "Ingrid",
+			"type": "string"
+		},
+		{
+			"key": "shippingProviderId",
+			"value": "brink_ingrid_test",
+			"type": "string"
+		},
+		{
+			"key": "discountCode",
+			"value": "MEMBER25",
+			"type": "string"
+		},
+		{
+			"key": "postalCode",
+			"value": "43140",
+			"type": "string"
+		},
+		{
+			"key": "shippingHtmlSnippet",
+			"value": "<div id=\"shipwallet-container\" style=\"min-height:350px\">  <style>    #ingrid-loader {      min-height: 350px;      padding: 32px 12px 12px 12px;      border: 1px solid #e6e6e6;      border-radius: 6px;      background-color: white;    }    ._ingrid-skeleton {      background-color: #ededed;      position: relative;      overflow: hidden;      -webkit-mask-image: -webkit-radial-gradient(white, black);    }    ._ingrid-skeleton::before {      content: '';      background-image: linear-gradient(90deg, #ededed 0px, #f8f8f8 80px, #ededed 160px);      animation: transform 1.8s ease-out infinite;      transform-origin: 0 0;      width: 100vw;      height: 100%;      left: -160px;      position: absolute;      display: block;    }    ._ingrid-skeleton-text {      height: 10px;    }    ._ingrid-skeleton-shipping-indicator {      height: 45px;      width: 100%;    }    ._ingrid-skeleton-shipping-indicator-label {      margin-bottom: 20px;      width: 100px;    }    ._ingrid-skeleton-delivery-categories-wrapper {      display: flex;      flex-direction: column;      width: 100%;      padding-bottom: 9px;    }    ._ingrid-skeleton-shipping-option-first-row {      display: flex;      align-items: center;      width: 100%;    }    ._ingrid-skeleton-checkbox {      width: 20px;      height: 20px;      border-radius: 10px;      margin-right: 8px;    }    ._ingrid-skeleton-flex-1 {      flex: 1;    }    ._ingrid-skeleton-shipping-option-name {      width: 60%;    }    ._ingrid-skeleton-price {      width: 30px;      margin-right: 12px;    }    ._ingrid-skeleton-shipping-option-second-row {      display: flex;      width: 100%;    }    ._ingrid-skeleton-delivery-description {      width: 35%;    }    ._ingrid-skeleton-delivery-logo {      width: 32px;      height: 32px;      border-radius: 50%;    }    ._ingrid-skeleton-delivery-categories-label {      width: 200px;    }    ._ingrid-skeleton-delivery-category-wrapper {      padding-bottom: 16px;    }    @keyframes transform {      to {        transform: translateX(120%);      }    }    ._ingrid-skeleton-zipcode-label {      width: 70px;      margin-bottom: 12px;    }    ._ingrid-skeleton-zipcode-input {      height: 50px;      width: 100%;      margin-bottom: 28px;    }  </style>  <div id=\"ingrid-loader\">      <div style=\"width: 100%\">        <div>          <div class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-zipcode-label\"></div>          <div class=\"_ingrid-skeleton _ingrid-skeleton-zipcode-input\"></div>          <div            class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-shipping-indicator-label\"          ></div>        <div class=\"_ingrid-skeleton-delivery-categories-wrapper\">          <div class=\"_ingrid-skeleton-delivery-category-wrapper\">            <div class=\"_ingrid-skeleton-shipping-option-first-row\">            <div class=\"_ingrid-skeleton _ingrid-skeleton-checkbox\"></div>            <div class=\"_ingrid-skeleton-flex-1\">              <div                class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-shipping-option-name\"              ></div>            </div>            <div class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-price\"></div>            <div class=\"_ingrid-skeleton _ingrid-skeleton-delivery-logo\"></div>          </div>          <div class=\"_ingrid-skeleton-shipping-option-second-row\">            <div class=\"_ingrid-skeleton-checkbox\"></div>            <div class=\"_ingrid-skeleton-flex-1\">              <div                class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-delivery-description\"              ></div>            </div>          </div>          </div>          <div class=\"_ingrid-skeleton-delivery-category-wrapper\">            <div class=\"_ingrid-skeleton-shipping-option-first-row\">            <div class=\"_ingrid-skeleton _ingrid-skeleton-checkbox\"></div>            <div class=\"_ingrid-skeleton-flex-1\">              <div                class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-shipping-option-name\"              ></div>            </div>            <div class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-price\"></div>            <div class=\"_ingrid-skeleton _ingrid-skeleton-delivery-logo\"></div>          </div>          <div class=\"_ingrid-skeleton-shipping-option-second-row\">            <div class=\"_ingrid-skeleton-checkbox\"></div>            <div class=\"_ingrid-skeleton-flex-1\">              <div                class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-delivery-description\"              ></div>            </div>          </div>          </div>          <div class=\"_ingrid-skeleton-delivery-category-wrapper\">            <div class=\"_ingrid-skeleton-shipping-option-first-row\">            <div class=\"_ingrid-skeleton _ingrid-skeleton-checkbox\"></div>            <div class=\"_ingrid-skeleton-flex-1\">              <div                class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-shipping-option-name\"              ></div>            </div>            <div class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-price\"></div>            <div class=\"_ingrid-skeleton _ingrid-skeleton-delivery-logo\"></div>          </div>          <div class=\"_ingrid-skeleton-shipping-option-second-row\">            <div class=\"_ingrid-skeleton-checkbox\"></div>            <div class=\"_ingrid-skeleton-flex-1\">              <div                class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-delivery-description\"              ></div>            </div>          </div>          </div>          <div class=\"_ingrid-skeleton-shipping-option-first-row\">            <div class=\"_ingrid-skeleton _ingrid-skeleton-checkbox\"></div>            <div class=\"_ingrid-skeleton-flex-1\">              <div                class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-shipping-option-name\"              ></div>            </div>            <div class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-price\"></div>            <div class=\"_ingrid-skeleton _ingrid-skeleton-delivery-logo\"></div>          </div>          <div class=\"_ingrid-skeleton-shipping-option-second-row\">            <div class=\"_ingrid-skeleton-checkbox\"></div>            <div class=\"_ingrid-skeleton-flex-1\">              <div                class=\"_ingrid-skeleton _ingrid-skeleton-text _ingrid-skeleton-delivery-description\"              ></div>            </div>          </div>        </div>      </div>    </div>  </div>  <script>    (function(window, instanceId, containerId, document) {      window[instanceId] = window[instanceId] || function() { (window[instanceId].q = window[instanceId].q || []).push(arguments)  };      var bootstrapURL = \"https://cdn-stage.ingrid.com/checkout-widget/91f63a7/bootstrap.js\";      var bootstrapFallbackURL = \"\";      if (/MSIE|Trident/.test(window.navigator.userAgent)) {        bootstrapURL = bootstrapFallbackURL;      }      window[instanceId].config = {        container: document.getElementById(containerId),        bootstrapURL: bootstrapURL,        bootstrapFallbackURL: bootstrapFallbackURL,        features: {\"hide_toc\":false,\"show_shipping_price_on_service_points_view\":true,\"show_carrier_icons\":false,\"new_search_address\":true,\"door_code\":false,\"show_map\":true,\"hide_street_on_address_fields\":false,\"disable_address_form\":false,\"show_city_on_address_fields\":false,\"display_upfront_address\":true,\"autocomplete_street\":false,\"display_location_type\":false,\"dont_require_street_on_address_fields\":false,\"show_state_on_address_fields\":false,\"show_delivered_by\":false,\"show_street_on_address_module\":false,\"show_city_on_address_module\":false,\"require_street_on_address_module\":false,\"enable_ingrid_logo\":true,\"enable_widget_border\":true,\"enable_transparent_background\":false,\"show_shipping_categories_before_address\":false,\"enable_accent_color_for_widget_elements\":false,\"dark_color_enabled\":true,\"show_slogan\":false,\"show_carrier_logos_in_shipping_categories_placeholder\":false,\"enable_free_shipping_indicator\":false,\"enable_free_shipping_indicator_category_name_message\":false,\"enable_free_shipping_indicator_carrier_logo\":false,\"enable_delivery_address_form\":false,\"show_privacy_policy\":false,\"show_region\":false,\"require_region\":false,\"shipping_categories_visible_when_folded_count\":0,\"enable_multiple_home_delivery_in_category\":false,\"display_currency_iso_code\":false,\"enable_postal_code_in_location_address\":false,\"enable_analytics\":false,\"show_currency_before_price\":false,\"show_cancel_button_on_modal\":false,\"enable_full_sentry_tracing\":false,\"enable_state_get_retry\":false,\"external_address_book_provider\":\"\"},        instanceId: instanceId,        locale: \"sv-SE\",        logging: \"https://c7a68a2a3cfe4024bf719e6485aa8751@sentry.io/141995\",        status: \"\\u0001\",        style:  null ,        session: \"VM2-e7e6f4ffc4ca4362a3c52e965b830254\",        token: \"Y2xpZW50dHdvOjQzYjRkZmRlODBmMDQxYWU4MTQ1NzQzNTUzYjQ5MjMy\",        version: \"a50d1622\",        loaderId: \"ingrid-loader\"      };      var container = document.getElementById(containerId);      var bootstrapScript = document.createElement(\"script\");      bootstrapScript.async = true;      bootstrapScript.src = bootstrapURL;      bootstrapScript.className = \"ingrid-bootstrap-script\";      bootstrapScript.addEventListener(\"load\", function (e) {        if (typeof _ingrid_initializeWidgetInstance === \"function\") {           _ingrid_initializeWidgetInstance(instanceId);         }      });      container.appendChild(bootstrapScript);    })(window, '_sw', 'shipwallet-container', document);  </script>  <noscript>    Please <a href=\"https://enable-javascript.com\">enable JavaScript</a>.  </noscript></div>"
+		},
+		{
+			"key": "paymentHtmlSnippet",
+			"value": "<div id=\"klarna-checkout-container\" style=\"overflow: hidden;\">\n  <div id=\"klarna-unsupported-page\">\n  <style type=\"text/css\">\n  @-webkit-keyframes klarnaFadeIn{from{opacity:0}to{opacity:1}}@-moz-keyframes klarnaFadeIn{from{opacity:0}to{opacity:1}}@keyframes klarnaFadeIn{from{opacity:0}to{opacity:1}}#klarna-unsupported-page{opacity:0;opacity:1\\9;-webkit-animation:klarnaFadeIn ease-in 1;-moz-animation:klarnaFadeIn ease-in 1;animation:klarnaFadeIn ease-in 1;-webkit-animation-fill-mode:forwards;-moz-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-duration:.1s;-moz-animation-duration:.1s;animation-duration:.1s;-webkit-animation-delay:5s;-moz-animation-delay:5s;animation-delay:5s;text-align:center;padding-top:64px}#klarna-unsupported-page .heading{font-family: \"Klarna Headline\", Helvetica, Arial, sans-serif;color: rgb(23, 23, 23);font-size: 36px;letter-spacing: -0.2px;-webkit-font-smoothing: antialiased;}#klarna-unsupported-page .subheading{font-family: \"Klarna Text\", \"Klarna Sans\", Helvetica, Arial, sans-serif;color: rgb(23, 23, 23);-webkit-font-smoothing: antialiased;line-height: 28px;font-weight: 400;font-size: 19px;max-width: 640px;margin: 20px auto;}#klarna-unsupported-page .reload {cursor: pointer;outline: none;-webkit-tap-highlight-color: rgba(255, 255, 255, 0);border-width: 1px;background-color: rgb(38, 37, 37);border-color: rgb(38, 37, 37);padding: 15px 24px;margin-top: 15px;color: rgb(255, 255, 255);font-family: \"Klarna Text\", \"Klarna Sans\", Helvetica, Arial, sans-serif;font-weight: 500;text-rendering: geometricprecision;font-size: 100%;}\n  </style>\n  <h1 class=\"heading\">Something went wrong</h1>\n  <p class=\"subheading\">Sorry for any inconvenience, please try reloading the checkout page or try again later.</p>\n  <p class=\"subheading\">If the problem persists it maybe be because you are using an old version of the web browser which is not safe nor compatible with modern web sites. For a smoother checkout experience, please install a newer browser.</p>\n  <button class=\"reload\" onclick=\"reloadCheckoutHandler && reloadCheckoutHandler()\">Reload checkout</button>\n  </div>\n  <script id=\"klarna-checkout-context\" type=\"text/javascript\">\n  /* <![CDATA[ */\n  var reloadCheckoutHandler;\n  (function(w,k,i,d,n,c,l){\n    w[k]=w[k]||function(){(w[k].q=w[k].q||[]).push(arguments)};\n    l=w[k].config={\n      container:w.document.getElementById(i),\n      ORDER_URL:'https://js.playground.klarna.com/eu/kco/checkout/orders/28f88c24-b10e-4f2d-922c-1568d320d751',\n      AUTH_HEADER:'KlarnaCheckout 1eboa1x37gd1dj93ba1a',\n      IS_CANARY:false,\n      IS_IN_CLIENT_ROLLOUT:false,\n      LOCALE:'sv-SE',\n      ORDER_STATUS:'checkout_incomplete',\n      MERCHANT_NAME:'Your business name',\n      GUI_OPTIONS:[],\n      ALLOW_SEPARATE_SHIPPING_ADDRESS:false,\n      PURCHASE_COUNTRY:'swe',\n      PURCHASE_CURRENCY:'SEK',\n      TESTDRIVE:true,\n      BOOTSTRAP_SRC:'https://js.playground.klarna.com/kcoc/231031-e34752e/checkout.bootstrap.js',\n      FE_EVENTS_DISABLED:'false',      CLIENT_EVENT_HOST:'https://eu.playground.klarnaevt.com'\n    };\n    n=d.createElement('script');\n    c=d.getElementById(i);\n    n.async=!0;\n    n.src=l.BOOTSTRAP_SRC;\n    c.appendChild(n);\n    try{\n      ((w.Image && (new w.Image))||(d.createElement && d.createElement('img'))||{}).src =\n        l.CLIENT_EVENT_HOST + '/v1/checkout/snippet/load' +\n        '?sid=' + l.ORDER_URL.split('/').slice(-1) +\n        '&order_status=' + w.encodeURIComponent(l.ORDER_STATUS) +\n        '&timestamp=' + (new Date).getTime();\n    }catch(e){}\n    reloadCheckoutHandler = function () {\n        try{\n            ((w.Image && (new w.Image))||(d.createElement && d.createElement('img'))||{}).src =\n            l.CLIENT_EVENT_HOST+'/v1/checkout/snippet/reload?sid='+l.ORDER_URL.split('/').slice(-1)+\n            '&order_status='+w.encodeURIComponent(l.ORDER_STATUS)+'&timestamp='+(new Date()).getTime();\n            window.location.reload();\n        }catch(e){}\n    }\n  })(this,'_klarnaCheckout','klarna-checkout-container',document);\n  /* ]]> */\n  </script>\n  <noscript>\nPlease <a href=\"http://enable-javascript.com\">enable JavaScript</a>.\n  </noscript>\n</div>"
+		},
+		{
+			"key": "confirmationHtmlSnippet",
+			"value": "<div id=\"klarna-checkout-container\" style=\"overflow: hidden;\">\n  <div id=\"klarna-unsupported-page\">\n  <style type=\"text/css\">\n  @-webkit-keyframes klarnaFadeIn{from{opacity:0}to{opacity:1}}@-moz-keyframes klarnaFadeIn{from{opacity:0}to{opacity:1}}@keyframes klarnaFadeIn{from{opacity:0}to{opacity:1}}#klarna-unsupported-page{opacity:0;opacity:1\\9;-webkit-animation:klarnaFadeIn ease-in 1;-moz-animation:klarnaFadeIn ease-in 1;animation:klarnaFadeIn ease-in 1;-webkit-animation-fill-mode:forwards;-moz-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-duration:.1s;-moz-animation-duration:.1s;animation-duration:.1s;-webkit-animation-delay:5s;-moz-animation-delay:5s;animation-delay:5s;text-align:center;padding-top:64px}#klarna-unsupported-page .heading{font-family: \"Klarna Headline\", Helvetica, Arial, sans-serif;color: rgb(23, 23, 23);font-size: 36px;letter-spacing: -0.2px;-webkit-font-smoothing: antialiased;}#klarna-unsupported-page .subheading{font-family: \"Klarna Text\", \"Klarna Sans\", Helvetica, Arial, sans-serif;color: rgb(23, 23, 23);-webkit-font-smoothing: antialiased;line-height: 28px;font-weight: 400;font-size: 19px;max-width: 640px;margin: 20px auto;}#klarna-unsupported-page .reload {cursor: pointer;outline: none;-webkit-tap-highlight-color: rgba(255, 255, 255, 0);border-width: 1px;background-color: rgb(38, 37, 37);border-color: rgb(38, 37, 37);padding: 15px 24px;margin-top: 15px;color: rgb(255, 255, 255);font-family: \"Klarna Text\", \"Klarna Sans\", Helvetica, Arial, sans-serif;font-weight: 500;text-rendering: geometricprecision;font-size: 100%;}\n  </style>\n  <h1 class=\"heading\">Something went wrong</h1>\n  <p class=\"subheading\">Sorry for any inconvenience, please try reloading the checkout page or try again later.</p>\n  <p class=\"subheading\">If the problem persists it maybe be because you are using an old version of the web browser which is not safe nor compatible with modern web sites. For a smoother checkout experience, please install a newer browser.</p>\n  <button class=\"reload\" onclick=\"reloadCheckoutHandler && reloadCheckoutHandler()\">Reload checkout</button>\n  </div>\n  <script id=\"klarna-checkout-context\" type=\"text/javascript\">\n  /* <![CDATA[ */\n  var reloadCheckoutHandler;\n  (function(w,k,i,d,n,c,l){\n    w[k]=w[k]||function(){(w[k].q=w[k].q||[]).push(arguments)};\n    l=w[k].config={\n      container:w.document.getElementById(i),\n      ORDER_URL:'https://js.playground.klarna.com/eu/kco/checkout/orders/28f88c24-b10e-4f2d-922c-1568d320d751',\n      AUTH_HEADER:'KlarnaCheckout 1eboa1x37gd1dj93ba1a',\n      IS_CANARY:false,\n      IS_IN_CLIENT_ROLLOUT:false,\n      LOCALE:'sv-SE',\n      ORDER_STATUS:'checkout_complete',\n      MERCHANT_NAME:'Your business name',\n      GUI_OPTIONS:[],\n      ALLOW_SEPARATE_SHIPPING_ADDRESS:false,\n      PURCHASE_COUNTRY:'swe',\n      PURCHASE_CURRENCY:'SEK',\n      TESTDRIVE:true,\n      BOOTSTRAP_SRC:'https://js.playground.klarna.com/kcoc/231031-e34752e/checkout.bootstrap.js',\n      FE_EVENTS_DISABLED:'false',      CLIENT_EVENT_HOST:'https://eu.playground.klarnaevt.com'\n    };\n    n=d.createElement('script');\n    c=d.getElementById(i);\n    n.async=!0;\n    n.src=l.BOOTSTRAP_SRC;\n    c.appendChild(n);\n    try{\n      ((w.Image && (new w.Image))||(d.createElement && d.createElement('img'))||{}).src =\n        l.CLIENT_EVENT_HOST + '/v1/checkout/snippet/load' +\n        '?sid=' + l.ORDER_URL.split('/').slice(-1) +\n        '&order_status=' + w.encodeURIComponent(l.ORDER_STATUS) +\n        '&timestamp=' + (new Date).getTime();\n    }catch(e){}\n    reloadCheckoutHandler = function () {\n        try{\n            ((w.Image && (new w.Image))||(d.createElement && d.createElement('img'))||{}).src =\n            l.CLIENT_EVENT_HOST+'/v1/checkout/snippet/reload?sid='+l.ORDER_URL.split('/').slice(-1)+\n            '&order_status='+w.encodeURIComponent(l.ORDER_STATUS)+'&timestamp='+(new Date()).getTime();\n            window.location.reload();\n        }catch(e){}\n    }\n  })(this,'_klarnaCheckout','klarna-checkout-container',document);\n  /* ]]> */\n  </script>\n  <noscript>\nPlease <a href=\"http://enable-javascript.com\">enable JavaScript</a>.\n  </noscript>\n</div>"
+		},
+		{
+			"key": "orderReference",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
